@@ -1,0 +1,45 @@
+.nav-div {
+    max-width: 960px;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.logo-navdiv {
+	width: fit-content;
+}
+.home-logo {
+	width: 100px;
+	position: absolute;
+	margin-right: 0rem;
+}
+
+.nav-div1 {
+	text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.nav-title {
+	display: inline-block
+}
+
+#h1nav {
+	padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: #e4007c;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+  #h1nav:hover {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+	background: rgba(255, 255, 255, 0.1);
+	color: #e4007c;
+  cursor: pointer;
+  }
+
+
+

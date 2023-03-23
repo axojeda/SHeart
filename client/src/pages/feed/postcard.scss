@@ -1,0 +1,121 @@
+$white: rgba(255,255,255,0.3);
+
+
+.bkground {
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: fit-content;
+  }
+  
+  .carddetail-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .username-feed {
+    margin-top: 5px;
+    color: #e4007c;
+  }
+
+  .postfeed-img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .icons-post {
+    font-size: 40px;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 53%;
+  }
+
+  .view-btn {
+    
+        background: transparent;
+        width: 200px;
+        padding: 1em;
+        margin-bottom: 2em;
+        border: none;
+        border-left: 1px solid $white;
+        border-top: 1px solid $white;
+        border-radius: 5000px;
+        backdrop-filter: blur(5px);
+        box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+        color: #e4007c;;
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        margin-top: 10px;
+        width: 150px;
+        font-size: 1rem;
+        position: absolute;
+        margin-left: 53%;
+        margin-top: 35%;
+        
+        &:hover {
+          background: rgba(255,255,255,0.1);
+          box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+          cursor: pointer;
+        }
+        
+          &:focus {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+          }
+          
+          &:active {
+            background: rgba(255,255,255,0.2);
+          }
+    
+        }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    max-width: 500px;
+    height: 350px;
+    padding: 30px;
+  
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
+  }
+
+  .follow {
+    width: 60px;
+    position: absolute;
+    border-radius: 5000px;
+    background-color: #e4007c;
+    border-color: #e4007c;
+    color: white;
+
+    &:hover {
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+      }
+      
+        &:focus {
+          background: rgba(255,255,255,0.1);
+          box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+        }
+        
+        &:active {
+          background: rgba(255,255,255,0.2);
+        }
+  }
+
+  @media (max-width: 480px) {
+    /* target smaller screen sizes */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr); /* change to one column */
+    }
+  }
+  
