@@ -1,19 +1,19 @@
 $white: rgba(255,255,255,0.3);
 
- .form-container {  
+ .signupform-container {  
   position: absolute;
   max-width: 400px;
-  height: 500px;
+  height: 650px;
   transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
   border-radius: 6%;
 }
 
-.login-form {
+.signuplogin-form {
   background: $white;
   padding: 3em;
-  height: 403px;
+  height: 553px;
   border-radius: 20px;
   border-left: 1px solid $white;
   border-top: 1px solid $white;
@@ -24,7 +24,7 @@ $white: rgba(255,255,255,0.3);
   transition: all 0.2s ease-in-out;
 }
 
-.welcome {
+.create {
     font-weight: 500;
     color: #e4007c;
     opacity: 0.7;
@@ -48,7 +48,7 @@ $white: rgba(255,255,255,0.3);
       }
 }
 
-.login-input {
+.signup-input {
     background: transparent;
     width: 200px;
     padding: 1em;
@@ -80,7 +80,7 @@ $white: rgba(255,255,255,0.3);
     }
 }
 
-.login-btn {
+.signup-btn {
     background: transparent;
     width: 200px;
     padding: 1em;

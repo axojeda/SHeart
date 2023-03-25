@@ -4,7 +4,7 @@ import Logo from '../../assets/rydlogo.png'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-function Navigation() {
+function Navigation({ user }) {
   return (
     <div className='nav-div'> 
     {/* <div className='logo-navdiv'>
@@ -27,7 +27,7 @@ function Navigation() {
           <h1><Link id='h1nav' to='MyProfile'>My Profile</Link></h1>
         </div>
         <div className='nav-title'>
-          <h1><Link id='h1nav' to='Login'>Login</Link></h1>
+          <h1><Link id='h1nav' to='Login'>{user?.email ? user.email : 'Login'}</Link></h1>
         </div>
     </div>
     </div>

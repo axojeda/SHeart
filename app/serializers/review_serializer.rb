@@ -1,6 +1,6 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :red_flag, :alert, :tea, :vouched, :green_flag, :request, :user_id, :post_id
+  attributes :id, :red_flag, :alert, :tea, :vouched, :green_flag, :request, :user_id, :post_id, :user
   
-  belongs_to :post
-  belongs_to :user
+  has_one :post
+  has_one :user
 end

@@ -9,17 +9,50 @@ import { useState, useEffect } from 'react'
 import Login from './pages/login/Login'
 import MyProfile from './pages/myprofile/MyProfile';
 import Search from './pages/search/Search';
+import NewPost from './pages/newpost/NewPost';
+import Signin from './pages/signin/Signin'
 
 function App() {
 
   const [ user, setUser ] = useState(null)
   const [ loginInfo, setLoginInfo ] = useState({})
+  const [signinInfo, setSigninInfo] = useState({})
 
-  const handleOnChange = (event) => {
-    setLoginInfo({...loginInfo, [event.target.type]: event.target.value})
+ 
+  const handleOnChangeSignin = (event) => {
+    setSigninInfo({...signinInfo, [event.target.name]: event.target.value})
+  }
+
+  //signin fetch
+  const HandleOnSignin = (e) => {
+    e.preventDefault()
+    console.log(signinInfo)
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(signinInfo)
+    })
+    .then(response => {
+      if(response.ok){
+        response.json().then(userData => {
+          console.log(userData)
+          // do not use localStorage for this. But in the interest of time ...
+          localStorage.setItem('token', userData.token)
+          setUser(userData.user)
+        })
+      }
+    
+    })
   }
 
 
+
+  const handleOnChange = (event) => {
+    setLoginInfo({...loginInfo, [event.target.name]: event.target.value})
+  }
+  
   //login fetch
   const HandleOnLogin = (e) => {
     e.preventDefault()
@@ -35,7 +68,9 @@ function App() {
       if(response.ok){
         response.json().then(userData => {
           console.log(userData)
-          setUser(userData)
+          // do not use localStorage for this. But in the interest of time ...
+          localStorage.setItem('token', userData.token)
+          setUser(userData.user)
         })
       }
       else if(response.status === 401){
@@ -49,29 +84,41 @@ function App() {
 
   //stay logeed in
   useEffect(() => {
-    fetch("http://localhost:3000/me")
-    .then(response => {
-      if(response.ok){
-        response.json().then(userData => setUser(userData))
-      }
-      else{
-        console.log(response.status)
-      }
-    })
+    let token = localStorage.getItem('token')
+    if (token) {
+      fetch("http://localhost:3000/me", { headers: { 'Authorization': token }})
+      .then(response => {
+        if(response.ok){
+          response.json().then(userData => {
+            setUser(userData.user)
+          })
+        }
+        else{
+          console.log(response.status)
+        }
+      })
+    } else {
+      console.log("No token found, try logging in!")
+    }
+
   }, [])
+
+ 
   
 
   return (
     <div className="App">
       <Router>
-        <Navigation />
-          <Routes>
+        <Navigation user={user} />
+          <Routes>o
             <Route path='/Landing' element={<Landing />}/>
             <Route path='/Home' element={user ? <Home /> : <h1>Please Log In</h1>}/>
-            <Route path='/Feed' element={user ? <Feed /> : <h1>Please Log In</h1>} />
+            <Route path='/Feed' element={user ? <Feed user={user}/> : <h1>Please Log In</h1>} />
+            <Route path='/NewPost' element={user ? <NewPost /> : <h1>Please Log In</h1>} />
             <Route path='/Search' element={user ? <Search /> : <h1>Please Log In</h1>} />
-            <Route path='/MyProfile' element={user ? <MyProfile /> : <h1>Please Log In</h1>} />
+            <Route path='/MyProfile' element={user ? <MyProfile user={user} setUser={setUser} /> : <h1>Please Log In</h1>} />
             <Route path='/Login' element={<Login HandleOnLogin={HandleOnLogin} handleOnChange={handleOnChange} />} />
+            <Route path='/Signin' element={<Signin HandleOnSignin={HandleOnSignin} handleOnChangeSignin={handleOnChangeSignin} />} />
           </Routes>
 
       </Router>

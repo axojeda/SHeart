@@ -1,24 +1,39 @@
 import React from 'react'
 import bkimage from '../../assets/bkimage.jpeg'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './postcard.scss'
 import ReviewsPopUp from '../../components/reviews/ReviewsPopUp'
+import UserProfilePopUp from '../userProfile/UserProfilePopUp'
 
-const PostCard = ( {post, review} ) => {
+
+const PostCard = ( {post} ) => {
 
     //const [imgSrc, setImgSrc] = useState('Empty Image')
     const [buttonPopup, setButtonPopup] = useState(false);
-    // create state to hold this card's reviews (probably an array)
+    const [chatPopUp, setChatPopUp] = useState(false)
+    
 
-
-    // define a function to handle the fetching of the reviews using this post's ID, example: `${post.id}`
-    // via the Rails controller
-    // at the end of this function, you will set the reviews state using the JSON from Rails
+  const reviewsArray = post.reviews.map((review) => {
+    return (
+     <div className='reviews-container'>
+        <h2 className='reviews-username'>
+          {review.user.username}
+          {review.request}
+          {review.red_flag}
+          {review.tea}
+          {review.alert}
+          {review.green_flag}
+          {review.vouched}</h2>    
+     </div>
+ )
+  })
 
   return (
-<div className='bkground' style={{ backgroundImage : `url(${bkimage})`}}>
+  <div className='bkground' style={{ backgroundImage : `url(${bkimage})`}}>
+      <UserProfilePopUp trigger={chatPopUp} />
     <div className='carddetail-container'>
-        <div class="card">
+        <div className="card">
+        <button className='chat' onClick={() => setChatPopUp(true)}>Chat</button>
             <h1 className='username-feed'>{post.user.username}</h1>
             <p className='guy-info'>
                 👤{post.name} - 
@@ -37,16 +52,14 @@ const PostCard = ( {post, review} ) => {
                 {post.request}
                 {post.green_flag}
                 {post.vouched}</p>
-                {/* Add a click event to this button that is an anonymous function that accepts the Post id as a param */}
-             <button className='view-btn' onClick={() => setButtonPopup(true)}>Reviews</button>
+             {/* <button className='view-btn' onClick={() => setButtonPopup(true)}>Reviews</button> */}
+             <ul>
+             {reviewsArray}
+             </ul>
              <button className='follow'>Follow</button>
         </div>
      </div>
-
-     <ReviewsPopUp
-        trigger={buttonPopup}
-        setButtonPopup={setButtonPopup}
-      />
+    
  </div>
   )
 }

@@ -18,8 +18,8 @@ class ReviewsController < ApplicationController
 
     # create the controller method to get the reviews by post id, which came from React
     # it sends back an array of json
-   def find_review_by_post(:id)
-    review = Review.find_by!(id: params[:id])
+   def find_review_by_post
+    review = Review.find_by!(id: params[:id], post_id: params[:post_id])
     render json: review
    end 
 

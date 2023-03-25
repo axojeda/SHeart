@@ -18,6 +18,50 @@ $white: rgba(255,255,255,0.3);
     color: #e4007c;
   }
 
+  .guy-info {
+    color:purple
+  }
+
+  .chat {
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    top: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1px solid $white;
+    border-top: 1px solid $white;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #e4007c;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    width: 70px;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 5%;
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+      
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+  }
+
   .postfeed-img {
     max-width: 200px;
     max-height: 200px;
@@ -27,11 +71,10 @@ $white: rgba(255,255,255,0.3);
     font-size: 40px;
     position: absolute;
     margin-left: 50%;
-    margin-top: 53%;
+    margin-top: 30%;
   }
 
   .view-btn {
-    
         background: transparent;
         width: 200px;
         padding: 1em;
@@ -42,7 +85,7 @@ $white: rgba(255,255,255,0.3);
         border-radius: 5000px;
         backdrop-filter: blur(5px);
         box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-        color: #e4007c;;
+        color: #e4007c;
         font-family: Montserrat, sans-serif;
         font-weight: 500;
         transition: all 0.2s ease-in-out;
@@ -109,6 +152,12 @@ $white: rgba(255,255,255,0.3);
         &:active {
           background: rgba(255,255,255,0.2);
         }
+  }
+
+  .reviews-container {
+    position:relative;
+    margin-left: 40%;
+    margin-bottom: 20%;
   }
 
   @media (max-width: 480px) {

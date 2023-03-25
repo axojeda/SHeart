@@ -1,36 +1,48 @@
 import React from 'react'
 import './signin.scss'
+import bkimage from '../../assets/bkimage.jpeg'
+import { useNavigate } from 'react-router-dom'
 
-const Signin = () => {
+const Signin = ( {handleOnChangeSignin, HandleOnSignin} ) => {
+
+  const navigate = useNavigate()
   return (
-    <div className='form-container' style={{ backgroundImage : `url(${bkimage})`}}>
-    <form className='login-form'>
-    <p className='welcome'>Create an account</p>
+    <div className='signupform-container' style={{ backgroundImage : `url(${bkimage})`}}>
+    <form className='signuplogin-form' onSubmit={HandleOnSignin}>
+    <p className='create'>Create an account</p>
     <input 
-        className='login-input' 
+        className='signup-input' 
+        name='username'
         type="username" 
-        placeholder="Username" />
+        placeholder="Username"
+        onChange={handleOnChangeSignin} />
     <input 
-        className='login-input' 
+        className='signup-input' 
+        name='email'
         type="email" 
-        placeholder="Email" />
+        placeholder="Email"
+        onChange={handleOnChangeSignin}  />
     <input 
-        className='login-input' 
+        className='signup-input' 
+        name='password'
         type="password" 
-        placeholder="Password" />
+        placeholder="Password" 
+        onChange={handleOnChangeSignin} />
      <input 
-        className='login-input' 
+        className='signup-input' 
+        name='location'
         type="location" 
-        placeholder="Location" />
+        placeholder="Location" 
+        onChange={handleOnChangeSignin} />
     <button
-    className='login-btn'
-    type="button">Sign In</button>
+    className='signup-btn'
+    type="submit" >Sign In</button>
     <div>
     <a className='form-question'>Don't have an account?</a>
     </div>
     <button
-    className='login-btn'
-    type="button">Sign In</button>
+    className='signup-btn'
+    type="button">Log In</button>
   </form>
 
     </div>

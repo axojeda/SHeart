@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-
-
+    before_action :authenticate, only: [:show]
+    
+    
     def index
         user = User.all
         render json: user
@@ -8,10 +9,9 @@ class UsersController < ApplicationController
 
     # Check if the user is currently logged in
     def show
-        puts "Here is the cookie: #{session[:user_id]}"
-        user = User.find_by(id: session[:user_id])
-        if(user)
-            render json: user, status: :ok
+        # puts "Here is the cookie: #{session[:user_id]}"
+        if(@current_user)
+            render json: {user: @current_user}, status: :ok
         else
             render json: { error: "Please log in" }, status: :unauthorized
         end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
-        if(user.valid)
+        if(user.valid?)
             render json: user, serializer: UsershowSerializer, status: :created
         else
             render json: {errors: user.errors.full_messages}, status: unprocessable_entity
@@ -31,6 +31,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permits(:username, :email, :password, :location)
+        params.permit(:username, :email, :password, :location)
     end
 end
