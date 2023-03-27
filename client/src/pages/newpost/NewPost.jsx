@@ -5,12 +5,21 @@ import { useState } from 'react'
 
 const NewPost = () => {
 
-  const [redFlag, setRedFlag] = useState(true)
-  const [tea, setTea] = useState(true)
-  const [alert, setAlert] = useState(true)
-  const [request, setRequest] = useState(true)
-  const [greenFlag, setGreenFlag] = useState(true)
-  const [vouched, setVouched] = useState(true)
+  const [name, setName] = useState('')
+  const [age, setAge] = useState('')
+  const [location, setLocation] = useState('')
+  const [ethnicity, setEthnicity] = useState('')
+  const [redFlagIcon, setRedFlagIcon] = useState(false)
+  const [teaIcon, setTeaIcon] = useState(false)
+  const [alertIcon, setAlertIcon] = useState(false)
+  const [requestIcon, setRequestIcon] = useState(false)
+  const [greenFlagIcon, setGreenFlagIcon] = useState(false)
+  const [vouchedIcon, setVouchedIcon] = useState(false)
+
+  const handleOnChange = (e) => {
+    console.log(e.target.checked)
+    console.log(e.target.value)
+  }
 
 //pass props from post get request
   return (
@@ -19,66 +28,66 @@ const NewPost = () => {
       <p className='newpost'>Create your post</p>
       <input 
             className='newpost-input' 
-            type="name" 
+            value="name" 
             placeholder="Name" 
-          //onChange={handleOnChange} 
+          onChange={(e) => setName(e.target.value)} 
           />
       <input 
             className='newpost-input' 
-            type="age" 
+            value="age" 
             placeholder="Age"
-          // onChange={}
+            onChange={(e) => setAge(e.target.value)}
           />
           <input 
             className='newpost-input' 
-            type="location" 
+            value="location" 
             placeholder="Location"
-          // onChange={}
+            onChange={(e) => setLocation(e.target.value) }
           />
           <input 
             className='newpost-input' 
-            type="ethnicity" 
+            value="ethnicity" 
             placeholder="Ethnicity"
-          // onChange={}
+            onChange={(e) => setEthnicity(e.target.value)}
           />
           <input 
             className='newpost-input' 
-            type="" 
+            value="image" 
             placeholder="Image"
-          // onChange={}
+            //onChange={(e) => set}
           />
 
           <br/>
           <label>🚩</label>
-          <input type="checkbox" 
-            //value={red_flag}
-            //onChange={(e) =>{() => handleOnChange('redFlag') }
+          <input type="checkbox"
+            value="🚩"
+            onChange={handleOnChange}
             />
            <label>🍵</label>
           <input type="checkbox" 
-            value={tea}
-            //onChange={() => handelOnChange('tea')}
+            value="🍵"
+           onChange={handleOnChange}
             />
             <label>⚠️</label>
           <input type="checkbox" 
-            value={request}
-            //onChange={() => handelOnChange('request')}
+           value="⚠️"
+           onChange={handleOnChange}
             />
             <label>❓</label>
           <input type="checkbox" 
-            value={alert}
-            //onChange={() => handelOnChange('alert')}
+            value="❓"
+            onChange={handleOnChange}
             />
             <label>✅</label>
           <input type="checkbox" 
-            value={greenFlag}
-            //onChange={() => handelOnChange('greenFlag')}
+            value="✅"
+            onChange={handleOnChange}
             />
             <label>💚</label>
           <input type="checkbox" 
-            value={vouched}
-            //onChange={() => handelOnChange('vouched')}
-            />
+           value="💚"
+           onChange={handleOnChange}
+           />
       <input
         className='send-btn'
         type="submit" />

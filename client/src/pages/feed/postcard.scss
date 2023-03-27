@@ -5,6 +5,7 @@ $white: rgba(255,255,255,0.3);
     background-repeat:no-repeat;
     background-size: cover;
     height: fit-content;
+    height: 600px;
   }
   
   .carddetail-container {
@@ -72,47 +73,7 @@ $white: rgba(255,255,255,0.3);
     position: absolute;
     margin-left: 50%;
     margin-top: 30%;
-  }
-
-  .view-btn {
-        background: transparent;
-        width: 200px;
-        padding: 1em;
-        margin-bottom: 2em;
-        border: none;
-        border-left: 1px solid $white;
-        border-top: 1px solid $white;
-        border-radius: 5000px;
-        backdrop-filter: blur(5px);
-        box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-        color: #e4007c;
-        font-family: Montserrat, sans-serif;
-        font-weight: 500;
-        transition: all 0.2s ease-in-out;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        margin-top: 10px;
-        width: 150px;
-        font-size: 1rem;
-        position: absolute;
-        margin-left: 53%;
-        margin-top: 35%;
-        
-        &:hover {
-          background: rgba(255,255,255,0.1);
-          box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-          cursor: pointer;
-        }
-        
-          &:focus {
-            background: rgba(255,255,255,0.1);
-            box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-          }
-          
-          &:active {
-            background: rgba(255,255,255,0.2);
-          }
-    
-        }
+  }    
   
   .card {
     display: flex;
@@ -157,7 +118,43 @@ $white: rgba(255,255,255,0.3);
   .reviews-container {
     position:relative;
     margin-left: 40%;
-    margin-bottom: 20%;
+    //max-height: 50px;
+    max-width: 300px ;
+    background-color: white;
+    bottom: 400px;
+    left: 150px;
+    border-radius: 20px;
+    bottom: 35rem;
+  }
+
+  .reviews-title {
+    position: relative;
+    bottom: 35rem;
+    color: #e4007c;
+    background-color: white;
+    width: 130px;
+    border-radius: 20px;
+    left: 54.5rem;
+    text-decoration: underline;
+  }
+
+  .reviews-username {
+    text-align: left;
+    padding-left: 10px;
+    color: #e4007c;
+  }
+
+  .delete-review {
+    cursor: pointer;
+    background-color: transparent;
+    margin-left: 8rem;
+    border-color: #e4007c;
+    border-radius: 40%;
+
+
+    &:hover {
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    }
   }
 
   @media (max-width: 480px) {

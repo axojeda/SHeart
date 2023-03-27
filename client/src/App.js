@@ -11,6 +11,7 @@ import MyProfile from './pages/myprofile/MyProfile';
 import Search from './pages/search/Search';
 import NewPost from './pages/newpost/NewPost';
 import Signin from './pages/signin/Signin'
+import MyPosts from './pages/myposts/MyPosts';
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
     .then(response => {
       if(response.ok){
         response.json().then(userData => {
-          console.log(userData)
+          //console.log(userData)
           // do not use localStorage for this. But in the interest of time ...
           localStorage.setItem('token', userData.token)
           setUser(userData.user)
@@ -67,7 +68,7 @@ function App() {
     .then(response => {
       if(response.ok){
         response.json().then(userData => {
-          console.log(userData)
+          //console.log(userData)
           // do not use localStorage for this. But in the interest of time ...
           localStorage.setItem('token', userData.token)
           setUser(userData.user)
@@ -103,22 +104,23 @@ function App() {
 
   }, [])
 
- 
+
   
 
   return (
     <div className="App">
       <Router>
         <Navigation user={user} />
-          <Routes>o
+          <Routes>
+            <Route path='/Login' element={<Login HandleOnLogin={HandleOnLogin} handleOnChange={handleOnChange} />} />
+            <Route path='/Signin' element={<Signin HandleOnSignin={HandleOnSignin} handleOnChangeSignin={handleOnChangeSignin} />} />
             <Route path='/Landing' element={<Landing />}/>
             <Route path='/Home' element={user ? <Home /> : <h1>Please Log In</h1>}/>
             <Route path='/Feed' element={user ? <Feed user={user}/> : <h1>Please Log In</h1>} />
             <Route path='/NewPost' element={user ? <NewPost /> : <h1>Please Log In</h1>} />
             <Route path='/Search' element={user ? <Search /> : <h1>Please Log In</h1>} />
             <Route path='/MyProfile' element={user ? <MyProfile user={user} setUser={setUser} /> : <h1>Please Log In</h1>} />
-            <Route path='/Login' element={<Login HandleOnLogin={HandleOnLogin} handleOnChange={handleOnChange} />} />
-            <Route path='/Signin' element={<Signin HandleOnSignin={HandleOnSignin} handleOnChangeSignin={handleOnChangeSignin} />} />
+            <Route path='/MyPosts' element={user ? <MyPosts /> : <h1>Please Log In</h1>} />
           </Routes>
 
       </Router>

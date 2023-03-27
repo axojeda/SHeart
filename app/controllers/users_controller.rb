@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
-    before_action :authenticate, only: [:show]
-    
+    before_action :authenticate, only:[:show, :me]
+
+    def me
+		render json: { user: @current_user}, status: 200
+	end
     
     def index
         user = User.all
@@ -9,14 +12,13 @@ class UsersController < ApplicationController
 
     # Check if the user is currently logged in
     def show
-        # puts "Here is the cookie: #{session[:user_id]}"
-        if(@current_user)
-            render json: {user: @current_user}, status: :ok
-        else
-            render json: { error: "Please log in" }, status: :unauthorized
-        end
-    end
-
+		user = User.find(params[:id])
+		if @current_user.id == user.id
+			render json: {user: user}, status: 200
+		else
+			render json: {error: "Access denied, imposter!"}, status: 401
+		end
+	end
     # Sign up for a new account
 
     def create

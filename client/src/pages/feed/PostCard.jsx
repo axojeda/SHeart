@@ -2,29 +2,33 @@ import React from 'react'
 import bkimage from '../../assets/bkimage.jpeg'
 import { useState, useRef } from 'react'
 import './postcard.scss'
-import ReviewsPopUp from '../../components/reviews/ReviewsPopUp'
 import UserProfilePopUp from '../userProfile/UserProfilePopUp'
+import ReviewForm from '../../components/reviewform/ReviewForm'
 
 
-const PostCard = ( {post} ) => {
+const PostCard = ( { post } ) => {
 
-    //const [imgSrc, setImgSrc] = useState('Empty Image')
-    const [buttonPopup, setButtonPopup] = useState(false);
+
     const [chatPopUp, setChatPopUp] = useState(false)
     
 
+    //fetch reviews
   const reviewsArray = post.reviews.map((review) => {
     return (
+    
      <div className='reviews-container'>
-        <h2 className='reviews-username'>
-          {review.user.username}
+        <h3 className='reviews-username'>
+          {review.user.username} - 
           {review.request}
           {review.red_flag}
           {review.tea}
           {review.alert}
           {review.green_flag}
-          {review.vouched}</h2>    
+          {review.vouched}
+          <button className='delete-review'>🗑️</button>
+          </h3>  
      </div>
+
  )
   })
 
@@ -52,14 +56,13 @@ const PostCard = ( {post} ) => {
                 {post.request}
                 {post.green_flag}
                 {post.vouched}</p>
-             {/* <button className='view-btn' onClick={() => setButtonPopup(true)}>Reviews</button> */}
-             <ul>
-             {reviewsArray}
-             </ul>
              <button className='follow'>Follow</button>
         </div>
+        <ReviewForm />
+        <h3 className='reviews-title'>Reviews:</h3>
+        {reviewsArray}
      </div>
-    
+       
  </div>
   )
 }

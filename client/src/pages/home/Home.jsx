@@ -9,20 +9,20 @@ function Home() {
   <div className='body'>
     <div className='container'>
       <div className='card'>
-       <div classNane='image'>
+       <div className='image'>
           <img className='heart' src={heart1} alt='About'/>
         </div>
           <div className='content'>
             <h3 className='About'>About</h3>
-            <p className='about-info'>SHeart is a community based platform to help women in their love journey. Unfortunatelly we live in a society where
-            women need to be protected, dating, marriage, relationships, even friendshisps can be difficult.</p>
+            <p className='about-info'>SHeart is a community based platform made to help women in their love journey. We are here to protect women
+            and empower them. From one woman to another, no matter nationality, religion, location, age...we are all connected. Date safely, love safely.</p>
           </div>
        </div>    
       </div>
 
       <div className='container'>
       <div className='card'>
-        <div classNane='image'>
+        <div className='image'>
           <img className='heart' src={heart3} alt='Rules' />
         </div>
           <div className='content'>
@@ -38,7 +38,7 @@ function Home() {
 
       <div className='container'>
       <div className='card'>
-        <div classNane='image'>
+        <div className='image'>
           <img className='heart' src={heart2} alt='Icons' />
         </div>
           <div className='content'>
@@ -47,7 +47,7 @@ function Home() {
                 <p>- ⚠️ Alert: Potential risk, dangerous behavior/actions.</p>
                 <p>- ❓ Information request: I`m seeking information.</p>
                 <p>- 🍵 I got tea: I have interesting information about this person (Ex. In a rrelationship, married, etc.)</p>
-                <p>- ✅ Vouched: I personally know this man and a vouche for him.</p>
+                <p>- ✅ Vouched: I know this man and vouche for him.</p>
                 <p>- 💚Green Flag: great behavior.</p>
           </div>
        </div>    
