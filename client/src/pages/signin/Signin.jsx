@@ -3,10 +3,38 @@ import './signin.scss'
 import bkimage from '../../assets/bkimage.jpeg'
 import { useNavigate } from 'react-router-dom'
 
-const Signin = ( {handleOnChangeSignin, HandleOnSignin} ) => {
+const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
 
   const navigate = useNavigate()
   
+  const handleOnChangeSignin = (event) => {
+    setSigninInfo({...signinInfo, [event.target.name]: event.target.value})
+  }
+
+  //signin fetch
+  const HandleOnSignin = (e) => {
+    e.preventDefault()
+    console.log(signinInfo)
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(signinInfo)
+    })
+    .then(response => {
+      if(response.ok){
+        response.json().then(userData => {
+          //console.log(userData)
+          // do not use localStorage for this. But in the interest of time ...
+          localStorage.setItem('token', userData.token)
+          setUser(userData.user)
+        })
+      }
+    
+    })
+  }
+
 
   return (
     <div className='signupform-container' style={{ backgroundImage : `url(${bkimage})`}}>
@@ -38,13 +66,15 @@ const Signin = ( {handleOnChangeSignin, HandleOnSignin} ) => {
         onChange={handleOnChangeSignin} />
     <button
     className='signup-btn'
-    type="submit" >Sign In</button>
+    type="submit" 
+    onClick={(() => navigate('/Home'))}>Sign In</button>
     <div>
     <a className='form-question'>Have an account?</a>
     </div>
     <button
     className='signup-btn'
-    type="button">Log In</button>
+    type="button"
+    onClick={(() => navigate('/Login'))}>Log In</button>
   </form>
 
     </div>

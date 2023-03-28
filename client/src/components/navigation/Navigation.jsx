@@ -20,9 +20,6 @@ function Navigation({ user }) {
                <div className='nav-title'>
                     <h1><Link id='h1nav' to='NewPost'>New post</Link></h1>
                </div>
-               {/* <div className='nav-title'>
-                    <h1><Link id='h1nav' to='Search'>Search</Link></h1>
-               </div> */}
                <div className='nav-title'> 
                    <h1><Link id='h1nav' to='MyProfile'>My Profile</Link></h1>
               </div>

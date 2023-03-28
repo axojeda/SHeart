@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 		if @current_user.id == user.id
 			render json: {user: user}, status: 200
 		else
-			render json: {error: "Access denied, imposter!"}, status: 401
+			render json: {error: "Access denied!"}, status: 401
 		end
 	end
     # Sign up for a new account

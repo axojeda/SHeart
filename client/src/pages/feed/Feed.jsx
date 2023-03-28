@@ -19,7 +19,8 @@ const Feed = ({ user, posts, setPosts }) => {
   return (
     <div className='search'>
     <div className='filter'>
-      <input type="text"
+      <input 
+      type="text"
       placeholder='Search...'
       className='search-input'
       onChange={(e) => setSearch(e.target.value)}
@@ -27,8 +28,8 @@ const Feed = ({ user, posts, setPosts }) => {
     </div>
     <div className="card-container" style={{ backgroundImage : `url(${bkimage})`}}>
         <ul className="card-grid">
-          {posts.filter((post) =>  post.name.toLowerCase().includes(search)).map((post) => (
-             <PostCard user={user} setPost={setPosts} post={post} key={post.id} 
+          {posts.filter((post) =>  post.name.toLowerCase().includes(search)).map((post) => ( 
+             <PostCard user={user} setPosts={setPosts} post={post} key={post.id} 
              />
            )
           )}

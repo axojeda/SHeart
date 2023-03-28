@@ -5,17 +5,6 @@ import { useState } from 'react'
 
 const NewPost = ({ user, posts, setPosts }) => {
 
-  const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-  const [location, setLocation] = useState('')
-  const [ethnicity, setEthnicity] = useState('')
-  const [image, setImage] = useState('')
-  const [redFlagIcon, setRedFlagIcon] = useState(false)
-  const [teaIcon, setTeaIcon] = useState(false)
-  const [alertIcon, setAlertIcon] = useState(false)
-  const [requestIcon, setRequestIcon] = useState(false)
-  const [greenFlagIcon, setGreenFlagIcon] = useState(false)
-  const [vouchedIcon, setVouchedIcon] = useState(false)
   const [formData, setFormData] = useState({
     user_id: user.id
   })

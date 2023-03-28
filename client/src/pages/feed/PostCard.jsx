@@ -1,6 +1,5 @@
 import React from 'react'
-import bkimage from '../../assets/bkimage.jpeg'
-import { useState, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './postcard.scss'
 import UserProfilePopUp from '../userProfile/UserProfilePopUp'
 import ReviewForm from '../../components/reviewform/ReviewForm'
@@ -8,12 +7,44 @@ import ReviewForm from '../../components/reviewform/ReviewForm'
 
 const PostCard = ( { user, post, setPosts } ) => {
 
-
     const [chatPopUp, setChatPopUp] = useState(false)
-    
+    const [reviews, setReviews] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/reviews')
+    .then((r) => r.json())
+    .then((reviewsData) => setReviews(reviewsData))
+  }, [])
+
+  const deleteReview = (review) => {
+    fetch(`http://localhost:3000/reviews/${review.id}`, {
+        method: "DELETE"
+    })
+    .then(response => {
+        if(response.ok){
+            setPosts(posts => {
+                return posts.map(p => {
+                    if(p.id === post.id){
+                        return {...p, reviews: p.reviews.filter(r => {
+                            return r.id !== review.id
+                        })}
+                    }
+                    else{
+                        return p
+                    }
+                })
+            })
+        }
+        else{
+            alert("Error: DELETE was unsuccessful")
+        }
+    })
+  }
+ 
 
     //fetch reviews
   const reviewsArray = post.reviews.map((review) => {
+    
     return (
     
      <div className='reviews-container'>
@@ -25,7 +56,7 @@ const PostCard = ( { user, post, setPosts } ) => {
           {review.alert}
           {review.green_flag}
           {review.vouched}
-          <button className='delete-review'>🗑️</button>
+          {review.user && (user.id === review.user.id) ? <button className='delete-review' onClick={() => deleteReview(review)}>🗑️</button> : null}
           </h3>  
      </div>
 

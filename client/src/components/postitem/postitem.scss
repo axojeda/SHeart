@@ -1,0 +1,245 @@
+$white: rgba(255,255,255,0.3);
+
+
+.bkground-mypost {
+   //margin-bottom: -18rem;
+   max-height: 620px;
+   border-color: white;
+   border-style: dashed;
+   border-radius: 20px;
+   align-items: center;
+   margin-right: 2.5rem;
+   background-color: #e4007c;
+
+  }
+  
+  .carddetailmypost-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  
+  }
+  
+  .username-feedmypost {
+    margin-top: 5px;
+    color: #e4007c;
+  }
+
+  .guy-info mypost{
+    color:purple
+  }
+
+  .chat-mypost {
+    background: transparent;
+    padding: 1em;
+    top: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1px solid $white;
+    border-top: 1px solid $white;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #e4007c;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    width: 70px;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 5%;
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+      
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+  }
+
+  .postfeed-imgmypost {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .icons-postmypost {
+    font-size: 40px;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 30%;
+  }    
+  
+  .card-mypost {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 500px;
+    height: 350px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  
+    backdrop-filter: blur(15px);
+  }
+
+  .follow-mypost {
+    width: 60px;
+    position: absolute;
+    border-radius: 5000px;
+    background-color: #e4007c;
+    border-color: #e4007c;
+    color: white;
+
+    &:hover {
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+        cursor: pointer;
+      }
+      
+        &:focus {
+          background: rgba(255,255,255,0.1);
+          box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+        }
+        
+        &:active {
+          background: rgba(255,255,255,0.2);
+        }
+  }
+
+  .reviewsmypost-container {
+    position:relative;
+    margin-left: 40%;
+    max-width: 400px ;
+    background-color: white;
+    top:0px;
+    left: 200px;
+    border-radius: 20px;
+   
+  }
+
+  .reviews-titlemypost {
+    position: relative;
+    bottom: 0rem;
+    color: #e4007c;
+    background-color: white;
+    width: 130px;
+    border-radius: 20px;
+    left: 54.5rem;
+    text-decoration: underline;
+  }
+
+  .reviewsmypost-username {
+    text-align: left;
+    padding-left: 10px;
+    color: #e4007c;
+  }
+
+  .delete-reviewmypost {
+    cursor: pointer;
+    background-color: transparent;
+    margin-left: 10rem;
+    border-color: #e4007c;
+    border-radius: 40%;
+
+    &:hover {
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    }
+  }
+
+  .delete-mypost {
+    background: transparent;
+    padding: 1em;
+    top: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1px solid $white;
+    border-top: 1px solid $white;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #e4007c;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    width: 80px;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 57%;
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+      
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+  }
+
+  .edit-mypost {
+    background: transparent;
+    padding: 1em;
+    top: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1px solid $white;
+    border-top: 1px solid $white;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #e4007c;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-top: 10px;
+    width: 80px;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: 48%;
+    margin-top: 57%;
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+      
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+  }
+
+  @media (max-width: 480px) {
+    /* target smaller screen sizes */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr); /* change to one column */
+    }
+  }
