@@ -26,9 +26,10 @@ const Login = ({ handleOnChange, HandleOnLogin }) => {
           placeholder="Password"
           onChange={handleOnChange} 
           />
-      <input
+      <button
         className='login-btn'
-        type="submit" />
+        type="submit">Log In
+        </button>
 
       <div>
           <a className='form-question'>Don't have an account?</a>

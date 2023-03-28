@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 
     private
 
-    def post_params 
+    def review_params 
         params.permit(:red_flag, :alert, :tea, :vouched, :green_flag, :request, :post_id, :user_id)
     end
 

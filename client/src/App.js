@@ -8,17 +8,19 @@ import Feed from './pages/feed/Feed';
 import { useState, useEffect } from 'react'
 import Login from './pages/login/Login'
 import MyProfile from './pages/myprofile/MyProfile';
-import Search from './pages/search/Search';
 import NewPost from './pages/newpost/NewPost';
 import Signin from './pages/signin/Signin'
 import MyPosts from './pages/myposts/MyPosts';
+
 
 function App() {
 
   const [ user, setUser ] = useState(null)
   const [ loginInfo, setLoginInfo ] = useState({})
-  const [signinInfo, setSigninInfo] = useState({})
+  const [ signinInfo, setSigninInfo] = useState({})
 
+  const [posts, setPosts] = useState([])
+  
  
   const handleOnChangeSignin = (event) => {
     setSigninInfo({...signinInfo, [event.target.name]: event.target.value})
@@ -54,7 +56,7 @@ function App() {
     setLoginInfo({...loginInfo, [event.target.name]: event.target.value})
   }
   
-  //login fetch
+  // //login fetch
   const HandleOnLogin = (e) => {
     e.preventDefault()
 
@@ -104,29 +106,31 @@ function App() {
 
   }, [])
 
-
   
 
-  return (
-    <div className="App">
-      <Router>
-        <Navigation user={user} />
-          <Routes>
-            <Route path='/Login' element={<Login HandleOnLogin={HandleOnLogin} handleOnChange={handleOnChange} />} />
-            <Route path='/Signin' element={<Signin HandleOnSignin={HandleOnSignin} handleOnChangeSignin={handleOnChangeSignin} />} />
-            <Route path='/Landing' element={<Landing />}/>
-            <Route path='/Home' element={user ? <Home /> : <h1>Please Log In</h1>}/>
-            <Route path='/Feed' element={user ? <Feed user={user}/> : <h1>Please Log In</h1>} />
-            <Route path='/NewPost' element={user ? <NewPost /> : <h1>Please Log In</h1>} />
-            <Route path='/Search' element={user ? <Search /> : <h1>Please Log In</h1>} />
-            <Route path='/MyProfile' element={user ? <MyProfile user={user} setUser={setUser} /> : <h1>Please Log In</h1>} />
-            <Route path='/MyPosts' element={user ? <MyPosts /> : <h1>Please Log In</h1>} />
-          </Routes>
+    
 
-      </Router>
-     
+   return (
+   <div className="App">
+     <Router>
+       <Navigation user={user} />
+          <Routes>
+            <Route path='/' element={<Landing />}/>
+            <Route path='/Login' element={<Login 
+              HandleOnLogin={HandleOnLogin} 
+        
+              handleOnChange={handleOnChange} />} />
+            <Route path='/Signin' element={<Signin HandleOnSignin={HandleOnSignin} handleOnChangeSignin={handleOnChangeSignin} />} />
+            <Route path='/Home' element={user ? <Home /> : <h1>Please Log In</h1>}/>
+            <Route path='/Feed' element={user ? <Feed user={user} posts={posts} setPosts={setPosts}/> : <h1>Please Log In</h1>} />
+            <Route path='/NewPost' element={user ? <NewPost user={user} posts={posts} setPosts={setPosts}/> : <h1>Please Log In</h1>} />
+            <Route path='/MyProfile' element={user ? <MyProfile user={user} setUser={setUser} /> : <h1>Please Log In</h1>} />
+            <Route path='/MyPosts' element={user ? <MyPosts user={user} posts={posts} setPosts={setPosts}/> : <h1>Please Log In</h1>} />
+         </Routes> 
+   </Router>
     </div>
-  );
-}
+   )
+  }
+
 
 export default App;

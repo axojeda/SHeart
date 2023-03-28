@@ -3,97 +3,130 @@ import './newpost.scss'
 import bkimage from '../../assets/bkimage.jpeg'
 import { useState } from 'react'
 
-const NewPost = () => {
+const NewPost = ({ user, posts, setPosts }) => {
 
   const [name, setName] = useState('')
   const [age, setAge] = useState('')
   const [location, setLocation] = useState('')
   const [ethnicity, setEthnicity] = useState('')
+  const [image, setImage] = useState('')
   const [redFlagIcon, setRedFlagIcon] = useState(false)
   const [teaIcon, setTeaIcon] = useState(false)
   const [alertIcon, setAlertIcon] = useState(false)
   const [requestIcon, setRequestIcon] = useState(false)
   const [greenFlagIcon, setGreenFlagIcon] = useState(false)
   const [vouchedIcon, setVouchedIcon] = useState(false)
+  const [formData, setFormData] = useState({
+    user_id: user.id
+  })
+  
+  console.log(user)
 
-  const handleOnChange = (e) => {
-    console.log(e.target.checked)
-    console.log(e.target.value)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then(newPost => setPosts(posts => [...posts, newPost]));
   }
+
+  function handleChange(event){
+    setFormData(formData => {
+      return {...formData, [event.target.name]: event.target.value}
+    })
+  }
+  
 
 //pass props from post get request
   return (
     <div className='newpost-container' style={{ backgroundImage : `url(${bkimage})`}}>
-    <form className='newpost-form' >
+    <form className='newpost-form' onSubmit={handleSubmit}>
       <p className='newpost'>Create your post</p>
-      <input 
+      <input
+            type="text"
             className='newpost-input' 
-            value="name" 
+            name="name" 
             placeholder="Name" 
-          onChange={(e) => setName(e.target.value)} 
+            onChange={handleChange}
+            required
           />
-      <input 
+      <input
+            type="number"
             className='newpost-input' 
-            value="age" 
+            name="age" 
             placeholder="Age"
-            onChange={(e) => setAge(e.target.value)}
+            onChange={handleChange}
+            required
           />
-          <input 
+          <input
+            type="text"
             className='newpost-input' 
-            value="location" 
+            name="location" 
             placeholder="Location"
-            onChange={(e) => setLocation(e.target.value) }
+            onChange={handleChange}
+            required
           />
           <input 
+            type="text"
             className='newpost-input' 
-            value="ethnicity" 
+            name="ethnicity" 
             placeholder="Ethnicity"
-            onChange={(e) => setEthnicity(e.target.value)}
+            onChange={handleChange}
+            required
           />
           <input 
+            type="text"
             className='newpost-input' 
-            value="image" 
+            name="post_img" 
             placeholder="Image"
-            //onChange={(e) => set}
+            onChange={handleChange}
           />
 
           <br/>
           <label>🚩</label>
           <input type="checkbox"
+            name="red_flag"
             value="🚩"
-            onChange={handleOnChange}
+            onChange={handleChange}
             />
            <label>🍵</label>
-          <input type="checkbox" 
+          <input type="checkbox"
+            name="tea"
             value="🍵"
-           onChange={handleOnChange}
+           onChange={handleChange}
             />
             <label>⚠️</label>
           <input type="checkbox" 
+           name="alert"
            value="⚠️"
-           onChange={handleOnChange}
+           onChange={handleChange}
             />
             <label>❓</label>
           <input type="checkbox" 
+            name="request"
             value="❓"
-            onChange={handleOnChange}
+            onChange={handleChange}
             />
             <label>✅</label>
-          <input type="checkbox" 
+          <input type="checkbox"
+            name="vouched"
             value="✅"
-            onChange={handleOnChange}
+            onChange={handleChange}
             />
             <label>💚</label>
-          <input type="checkbox" 
+          <input type="checkbox"
+           name="green_flag"
            value="💚"
-           onChange={handleOnChange}
+           onChange={handleChange}
            />
       <input
         className='send-btn'
         type="submit" />
-
-
-  
   </form>
 </div>
   )

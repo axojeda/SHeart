@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 const Signin = ( {handleOnChangeSignin, HandleOnSignin} ) => {
 
   const navigate = useNavigate()
+  
+
   return (
     <div className='signupform-container' style={{ backgroundImage : `url(${bkimage})`}}>
     <form className='signuplogin-form' onSubmit={HandleOnSignin}>
@@ -38,7 +40,7 @@ const Signin = ( {handleOnChangeSignin, HandleOnSignin} ) => {
     className='signup-btn'
     type="submit" >Sign In</button>
     <div>
-    <a className='form-question'>Don't have an account?</a>
+    <a className='form-question'>Have an account?</a>
     </div>
     <button
     className='signup-btn'

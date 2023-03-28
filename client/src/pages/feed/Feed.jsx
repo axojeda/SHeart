@@ -2,12 +2,13 @@ import React from 'react'
 import './feed.scss'
 import { useState, useEffect } from 'react'
 import PostCard from './PostCard'
+import bkimage from '../../assets/bkimage.jpeg'
 
 
-const Feed = () => {
+const Feed = ({ user, posts, setPosts }) => {
 
- const [posts, setPosts] =useState([])
- 
+  const [search, setSearch] = useState('')
+
   useEffect(() => {
     fetch('http://localhost:3000/posts')
     .then((r) => r.json())
@@ -16,14 +17,26 @@ const Feed = () => {
 
 
   return (
-    <div className="card-container">
-    <div className="card-grid">
-      {posts.map((post) => (
-        <PostCard post={post} key={post.id} />
-      )
-      )}
+    <div className='search'>
+    <div className='filter'>
+      <input type="text"
+      placeholder='Search...'
+      className='search-input'
+      onChange={(e) => setSearch(e.target.value)}
+      />
+    </div>
+    <div className="card-container" style={{ backgroundImage : `url(${bkimage})`}}>
+        <ul className="card-grid">
+          {posts.filter((post) =>  post.name.toLowerCase().includes(search)).map((post) => (
+             <PostCard user={user} setPost={setPosts} post={post} key={post.id} 
+             />
+           )
+          )}
+        </ul>
     </div>
   </div>
+
+ 
   )
 }
 
