@@ -49,6 +49,7 @@ const PostCard = ( { user, post, setPosts } ) => {
     
      <div className='reviews-container'>
         <h3 className='reviews-username'>
+          <div className='review-innerdiv'>
           {review.user ? review.user.username : "User Not Found"} - 
           {review.request}
           {review.red_flag}
@@ -56,6 +57,7 @@ const PostCard = ( { user, post, setPosts } ) => {
           {review.alert}
           {review.green_flag}
           {review.vouched}
+          </div>
           {review.user && (user.id === review.user.id) ? <button className='delete-review' onClick={() => deleteReview(review)}>🗑️</button> : null}
           </h3>  
      </div>
@@ -67,6 +69,7 @@ const PostCard = ( { user, post, setPosts } ) => {
   <div className='bkground' >
       <UserProfilePopUp trigger={chatPopUp} />
     <div className='carddetail-container'>
+        <div>
         <div className="card">
         <button className='chat' onClick={() => setChatPopUp(true)}>Chat</button>
             <h1 className='username-feed'>{post.user ? post.user.username : 'User Not Found'}</h1>
@@ -90,8 +93,12 @@ const PostCard = ( { user, post, setPosts } ) => {
              <button className='follow'>Follow</button>
         </div>
         {user && post ? <ReviewForm userID={user.id} postID={post.id} setPosts={setPosts} /> : null}
+        </div>
+        <div className='reviews-div'>
         <h3 className='reviews-title'>Reviews:</h3>
+      
         {reviewsArray}
+        </div>
      </div>
        
  </div>

@@ -38,7 +38,7 @@ fetch(`http://localhost:3000/posts/${props.post.id}`, {
 
   return (
     (props.trigger) ? (
-    <div>
+    <div className='bg-editpost-container'>
         <div className='editpost-container' style={{ backgroundImage : `url(${bkimage})`}}>
     <form className='editpost-form' onSubmit={onSubmit}>
       <p className='editpost'>Edit your post</p>

@@ -13,9 +13,10 @@ $white: rgba(255,255,255,0.3);
   
   .carddetail-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 20px;
-  
+    justify-content: center;
+    gap: 2rem;
   }
   
   .username-feed {
@@ -55,6 +56,7 @@ $white: rgba(255,255,255,0.3);
       background: rgba(255,255,255,0.1);
       box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
       cursor: pointer;
+      font-weight: bold;
     }
     
       &:focus {
@@ -70,6 +72,8 @@ $white: rgba(255,255,255,0.3);
   .postfeed-img {
     max-width: 200px;
     max-height: 200px;
+    min-width: 200px;
+    min-height: 200px;
   }
 
   .icons-post {
@@ -83,11 +87,11 @@ $white: rgba(255,255,255,0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  
+    width: 500px;
     max-width: 500px;
     height: 350px;
     padding: 30px;
-  
+    align-items: left;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.45);
@@ -107,6 +111,7 @@ $white: rgba(255,255,255,0.3);
     &:hover {
         box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
         cursor: pointer;
+        font-weight: bold;
       }
       
         &:focus {
@@ -120,10 +125,9 @@ $white: rgba(255,255,255,0.3);
   }
 
   .reviews-container {
-    position:relative;
-    margin-left: 40%;
-    //max-height: 100px;
+    
     max-width: 400px ;
+    min-width: 400px;
     background-color: white;
     bottom: 400px;
     left: 200px;
@@ -132,8 +136,8 @@ $white: rgba(255,255,255,0.3);
   }
 
   .reviews-title {
-    position: relative;
-    bottom: 35rem;
+    // position: relative;
+    // bottom: 35rem;
     color: #e4007c;
     background-color: white;
     width: 130px;
@@ -146,7 +150,13 @@ $white: rgba(255,255,255,0.3);
     text-align: left;
     padding-left: 10px;
     color: #e4007c;
-  }
+    display: flex;
+    justify-content: space-between;
+}
+  
+.review-innerdiv{
+  width: max-content;
+}
 
   .delete-review {
     cursor: pointer;

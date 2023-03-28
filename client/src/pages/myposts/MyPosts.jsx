@@ -4,9 +4,8 @@ import EmptyPost from '../../components/emptypost/EmptyPost'
 import PostItem from '../../components/postitem/PostItem'
 import { useState, useEffect } from 'react'
 
-const MyPosts = ({ user }) => {
+const MyPosts = ({ user, posts, setPosts }) => {
 
-  const [posts, setPosts ] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3000/posts')
