@@ -75,7 +75,7 @@ const PostItem = ({ user, post, setPosts}) => {
            <button className='edit-mypost'onClick={() => setEditPopup(true)} >Edit</button>
       </div>
    </div>     
-          <EditPost trigger={editPopup} post={post} setPosts={setPosts}/>
+          <EditPost trigger={editPopup} post={post} setPosts={setPosts} setTrigger={setEditPopup}/>
 </div>
    
 )

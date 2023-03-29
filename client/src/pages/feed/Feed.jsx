@@ -28,7 +28,10 @@ const Feed = ({ user, posts, setPosts }) => {
     </div>
     <div className="card-container" style={{ backgroundImage : `url(${bkimage})`}}>
         <ul className="card-grid">
-          {posts.filter((post) =>  post.name.toLowerCase().includes(search)).map((post) => ( 
+          {posts.filter((post) =>  post.name.toLowerCase().includes(search) 
+          || post.location.toLowerCase().includes(search)
+          || post.ethnicity.toLowerCase().includes(search)
+          || post.age.toString().includes(search)).map((post) => ( 
              <PostCard user={user} setPosts={setPosts} post={post} key={post.id} 
              />
            )

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable
    
     def index
-        post = Post.all
+        post = Post.all.order('created_at DESC')
         render json: post
     end
 
