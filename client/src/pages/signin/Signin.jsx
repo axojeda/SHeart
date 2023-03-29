@@ -13,8 +13,8 @@ const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
 
   //signin fetch
   const HandleOnSignin = (e) => {
-    e.preventDefault()
     console.log(signinInfo)
+    e.preventDefault()
     fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
@@ -29,7 +29,7 @@ const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
           // do not use localStorage for this. But in the interest of time ...
           localStorage.setItem('token', userData.token)
           setUser(userData.user)
-          navigate('/Home')
+          navigate('/Login')
         })
       }
     
@@ -68,7 +68,7 @@ const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
     <button
     className='signup-btn'
     type="submit" 
-    onClick={(() => navigate('/Home'))}>Sign In</button>
+    >Sign In</button>
     <div>
     <a className='form-question'>Have an account?</a>
     </div>
