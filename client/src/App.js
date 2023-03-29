@@ -12,6 +12,7 @@ import NewPost from './pages/newpost/NewPost';
 import Signin from './pages/signin/Signin'
 import MyPosts from './pages/myposts/MyPosts';
 import EditPost from './components/editpost/EditPost';
+import Disclamer from './components/disclamer/Disclamer'
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
             <Route path='/MyProfile' element={user ? <MyProfile user={user} setUser={setUser} /> : <h1>Please Log In</h1>} />
             <Route path='/MyPosts' element={user ? <MyPosts user={user} posts={posts} setPosts={setPosts}/> : <h1>Please Log In</h1>} />
             <Route path='/EditPost' element={user ? <EditPost /> : <h1>Please Log In</h1>}/>
+            <Route exact path='/Disclamer' element={<Disclamer />}/>
             <Route exact path='/' element={<Landing />}/>
             <Route path='/Signin' element={<Signin user={user} setUser={setUser} signinInfo={signinInfo} setLoginInfo={setLoginInfo} setSigninInfo={setSigninInfo}/>} />
             <Route path='/Login' element={<Login user={user} setUser={setUser} setLoginInfo={setLoginInfo} loginInfo={loginInfo}/>} />

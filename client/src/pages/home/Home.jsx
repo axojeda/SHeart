@@ -3,8 +3,13 @@ import './home.scss'
 import heart1 from '../../assets/heart1.jpeg'
 import heart2 from '../../assets/heart2.jpeg'
 import heart3 from '../../assets/heart3.jpeg'
+import bkimage from '../../assets/bkimage.jpeg'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+
+  const navigate = useNavigate()
+
   return (
   <div className='body'>
     <div className='container'>
@@ -52,7 +57,9 @@ function Home() {
           </div>
        </div>    
       </div>
-      
+      <div className='footer'>
+        <button className='disclamer' onClick={(() => navigate('/Disclamer'))}>Disclamer❣️</button>
+     </div>  
   </div>
   )
 }

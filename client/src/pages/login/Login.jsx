@@ -70,7 +70,7 @@ const Login = ({ user, setUser, setLoginInfo, loginInfo }) => {
       </div>
            <button
           className='login-btn'
-          type="button" onClick={(() => navigate('/Signin'))}>Sign In</button> 
+          type="button" onClick={(() => navigate('/Signin'))}>Sign Up</button> 
   </form>
 </div>
   )

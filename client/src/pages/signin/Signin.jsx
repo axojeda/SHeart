@@ -68,7 +68,7 @@ const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
     <button
     className='signup-btn'
     type="submit" 
-    >Sign In</button>
+    >Sign Up</button>
     <div>
     <a className='form-question'>Have an account?</a>
     </div>

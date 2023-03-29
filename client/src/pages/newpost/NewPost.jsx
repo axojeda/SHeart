@@ -21,7 +21,10 @@ const NewPost = ({ user, posts, setPosts }) => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then(newPost => setPosts(posts => [newPost, ...posts]));
+      .then(newPost => {
+        alert("New Post added!")
+        setPosts(posts => [newPost, ...posts])
+      });
   }
 
   function handleChange(event){
@@ -117,6 +120,8 @@ const NewPost = ({ user, posts, setPosts }) => {
         className='send-btn'
         type="submit" />
   </form>
+  <h3 className='newpost-text'>*Before you make a new post make sure to search if someone else made it. 
+    Help us prevent duplicated posts. If a post already exists, just leave a review on it instead!!!</h3>
 </div>
   )
 }
