@@ -13,7 +13,7 @@
 .popup-inside {
     position: relative;
     width: 400px;
-    height: 450px;
+    height: 600px;
     padding: 30px;
     border: 1px solid rgba(255, 255, 255, .25);
     background-color: #e4007c;;
@@ -46,4 +46,10 @@
 .location-popup {
     color: white;
     font-weight: lighter;
+}
+
+.chat-img {
+    max-width: 400px;
+    max-height: 400px;
+    margin-top: 1rem;
 }
