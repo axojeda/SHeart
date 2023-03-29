@@ -21,7 +21,7 @@ const NewPost = ({ user, posts, setPosts }) => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then(newPost => setPosts(posts => [...posts, newPost]));
+      .then(newPost => setPosts(posts => [newPost, ...posts]));
   }
 
   function handleChange(event){

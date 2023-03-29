@@ -29,6 +29,7 @@ const Signin = ( {user, setUser, setSigninInfo, signinInfo} ) => {
           // do not use localStorage for this. But in the interest of time ...
           localStorage.setItem('token', userData.token)
           setUser(userData.user)
+          navigate('/Home')
         })
       }
     

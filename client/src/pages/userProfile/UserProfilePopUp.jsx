@@ -2,15 +2,15 @@ import React from 'react'
 import './userProfilePopUp.scss'
 import avatar from '../../assets/avatar.jpg'
 
-const UserProfilePopUp = (props) => {
+const UserProfilePopUp = ({chatPopUp, setChatPopUp}) => {
 
 
   return (
-    (props.trigger) ? (
+    (chatPopUp) ? (
       <div className='profilepopup'>
           <div className='popup-inside'>
           <img className='avatar-popup' src={avatar}></img>
-          <button className='closeprofile-btn' onClick={() => props.setTrigger(false)}>X</button>
+          <button className='closeprofile-btn' onClick={() => setChatPopUp(!chatPopUp)}>X</button>
           <h2 className='username-popup'>Mariainny</h2>
               <h3 className='location-popup'>Manhattan</h3>
           </div>

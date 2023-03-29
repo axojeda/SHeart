@@ -42,5 +42,21 @@
   cursor: pointer;
   }
 
+  #h1nav2 {
+    padding: 18px;
+    font-family: "Open Sans";
+    text-transform:uppercase;
+    color: purple;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+  }
+  
+    #h1nav2:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    color: #e4007c;
+    }
+
 
 

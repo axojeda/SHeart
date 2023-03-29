@@ -67,7 +67,7 @@ const PostCard = ( { user, post, setPosts } ) => {
 
   return (
   <div className='bkground' >
-      <UserProfilePopUp trigger={chatPopUp} />
+      <UserProfilePopUp chatPopUp={chatPopUp} setChatPopUp={setChatPopUp} />
     <div className='carddetail-container'>
         <div>
         <div className="card">

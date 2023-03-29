@@ -24,7 +24,7 @@ function Navigation({ user }) {
                    <h1><Link id='h1nav' to='MyProfile'>My Profile</Link></h1>
               </div>
               <div className='nav-title'>
-                  <h1><Link id='h1nav' to='Login'>{user?.email ? user.email : 'Login'}</Link></h1>
+                  <h1><Link id='h1nav2' to='/Login'>{user?.username ? user.username : 'Login'}</Link></h1>
               </div>
           </div>
       </div>
